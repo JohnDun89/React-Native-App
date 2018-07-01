@@ -3,6 +3,16 @@ import { View, Text, Button } from "react-native";
 import { createStackNavigator } from "react-navigation";
 
 class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: "Home",
+    headerStyle: {
+      backgroundColor: "#f4511e"
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold"
+    }
+  };
   render() {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
@@ -19,6 +29,16 @@ class HomeScreen extends React.Component {
 }
 
 class DetailsScreen extends React.Component {
+  static navigationOptions = {
+    title: "Details",
+    headerStyle: {
+      backgroundColor: "#f4511e"
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold"
+    }
+  };
   render() {
     const { navigation } = this.props;
     const name = navigation.getParam("name", "No Name");
