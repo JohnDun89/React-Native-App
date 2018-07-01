@@ -1,42 +1,43 @@
-import React, { Component } from "react";
-import { StyleSheet, Text, View, Image, Button, Alert } from "react-native";
+import React from "react";
+import { View, Text, Button } from "react-native";
+import { createStackNavigator } from "react-navigation";
 
-class Greeting extends Component {
+class HomeScreen extends React.Component {
   render() {
-    return <Text>Hello {this.props.name}!</Text>;
-  }
-}
-
-export default class App extends Component {
-  render() {
-    let pic = {
-      uri:
-        "https://en.wikipedia.org/wiki/Q-Tip_(musician)#/media/File:Q-Tip_at_Commonwealth_Washington,_D.C._in_2008.jpg"
-    };
     return (
-      <View style={styles.container}>
-        <Text>Hello old pal</Text>
-
-        <Greeting name="Ali Shaheed Muhammad" />
-        <Greeting name="Phife Dog" />
-        <Greeting name="Q Tip" />
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text>Home Screen</Text>
         <Button
-          onPress={() => {
-            Alert.alert("Lindon Bulivard Represent, Represent");
-          }}
-          title="Press Me"
+          title="Go To Details"
+          onPress={() => this.props.navigation.navigate("Details")}
         />
-        <Button onPress={this.navigate} />
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
+class DetailsScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text>Details Screen</Text>
+      </View>
+    );
   }
-});
+}
+
+const RootStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Details: DetailsScreen
+  },
+  {
+    initialRouteName: "Home"
+  }
+);
+
+export default class App extends React.Component {
+  render() {
+    return <RootStack />;
+  }
+}
