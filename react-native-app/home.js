@@ -24,7 +24,7 @@ export default class HomeScreen extends React.Component {
         <TextInput
           style={{ height: 40 }}
           returnKeyType="done"
-          placeholder="Type here to translate!"
+          placeholder="Name"
           onChangeText={text => this.setState({ text })}
         />
         <Button
