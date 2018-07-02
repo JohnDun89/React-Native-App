@@ -50,6 +50,38 @@ class DetailsScreen extends React.Component {
           title="Go back"
           onPress={() => this.props.navigation.goBack()}
         />
+        <Button
+          title="Contact"
+          onPress={() => this.props.navigation.navigate("Contact")}
+        />
+      </View>
+    );
+  }
+}
+
+class ContactScreen extends React.Component {
+  static navigationOptions = {
+    title: "Contact",
+    headerStyle: {
+      backgroundColor: "#f4511e"
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold"
+    }
+  };
+  render() {
+    const { navigation } = this.props;
+    const name = navigation.getParam("name", "No Name");
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text>Contact Screen</Text>
+        <Text> 0789 66 00398</Text>
+
+        <Button
+          title="Go back"
+          onPress={() => this.props.navigation.navigate("Home")}
+        />
       </View>
     );
   }
@@ -58,7 +90,8 @@ class DetailsScreen extends React.Component {
 const RootStack = createStackNavigator(
   {
     Home: HomeScreen,
-    Details: DetailsScreen
+    Details: DetailsScreen,
+    Contact: ContactScreen
   },
   {
     initialRouteName: "Home"
