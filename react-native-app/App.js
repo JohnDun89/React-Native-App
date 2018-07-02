@@ -1,4 +1,5 @@
 import React from "react";
+import DetailsScreen from "./detailsScreen";
 import { View, Text, Button } from "react-native";
 import { createStackNavigator } from "react-navigation";
 
@@ -28,37 +29,6 @@ class HomeScreen extends React.Component {
   }
 }
 
-class DetailsScreen extends React.Component {
-  static navigationOptions = {
-    title: "Details",
-    headerStyle: {
-      backgroundColor: "#f4511e"
-    },
-    headerTintColor: "#fff",
-    headerTitleStyle: {
-      fontWeight: "bold"
-    }
-  };
-  render() {
-    const { navigation } = this.props;
-    const name = navigation.getParam("name", "No Name");
-    return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Details Screen</Text>
-        <Text> User Name: {JSON.stringify(name)}</Text>
-        <Button
-          title="Go back"
-          onPress={() => this.props.navigation.goBack()}
-        />
-        <Button
-          title="Contact"
-          onPress={() => this.props.navigation.navigate("Contact")}
-        />
-      </View>
-    );
-  }
-}
-
 class ContactScreen extends React.Component {
   static navigationOptions = {
     title: "Contact",
@@ -80,7 +50,7 @@ class ContactScreen extends React.Component {
 
         <Button
           title="Go back"
-          onPress={() => this.props.navigation.navigate("Home")}
+          onPress={() => this.props.navigation.navigate("Homegit")}
         />
       </View>
     );
