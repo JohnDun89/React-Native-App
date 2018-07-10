@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { View, Text, Button, TextInput } from "react-native";
 
 class BackButton extends Component {
   constructor(props) {
