@@ -25,7 +25,7 @@ class MapContainer extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: "80%",
+    height: "60%",
     width: "100%"
   }
 });
