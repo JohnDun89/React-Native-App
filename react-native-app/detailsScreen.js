@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Button } from "react-native";
 import { createStackNavigator } from "react-navigation";
 import ContactScreen from "./contactScreen.js";
-import backButton from "./backButton.js";
+import BackButton from "./backButton.js";
 
 class DetailsScreen extends React.Component {
   static navigationOptions = {
