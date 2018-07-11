@@ -22,7 +22,10 @@ class DetailsScreen extends React.Component {
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>Details Screen</Text>
         <Text> User Name: {JSON.stringify(name)}</Text>
-        <BackButton />
+        <Button
+          title="Go back"
+          onPress={() => this.props.navigation.goBack()}
+        />{" "}
         <Button
           title="Contact"
           onPress={() => this.props.navigation.navigate("Contact")}
