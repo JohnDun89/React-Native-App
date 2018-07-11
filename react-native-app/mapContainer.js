@@ -5,8 +5,13 @@ import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 class MapContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      latitude: null,
+      longitude: null,
+      error: null
+    };
   }
+
   render() {
     return (
       <MapView
@@ -31,3 +36,6 @@ const styles = StyleSheet.create({
 });
 
 export default MapContainer;
+
+// latitude: 39.7392,
+// longitude: -104.9903,

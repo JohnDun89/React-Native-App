@@ -6,7 +6,12 @@ import MapContainer from "./mapContainer.js";
 export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { text: "" };
+    this.state = {
+      text: "",
+      latitude: null,
+      longitude: null,
+      error: null
+    };
   }
   static navigationOptions = {
     title: "Home",
@@ -18,10 +23,24 @@ export default class HomeScreen extends React.Component {
       fontWeight: "bold"
     }
   };
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        this.setState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          error: null
+        });
+      },
+      error => this.setState({ error: error.message }),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+    );
+  }
+
   render() {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Home Screen</Text>
         <MapContainer />
         <TextInput
           style={{ height: 40 }}
@@ -35,6 +54,10 @@ export default class HomeScreen extends React.Component {
             this.props.navigation.navigate("Details", { name: this.state.text })
           }
         />
+        <Text>
+          latitude {this.state.latitude}
+          longitude {this.state.longitude}
+        </Text>
       </View>
     );
   }
