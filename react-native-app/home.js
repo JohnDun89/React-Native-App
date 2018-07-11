@@ -7,10 +7,7 @@ export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: "",
-      latitude: null,
-      longitude: null,
-      error: null
+      text: ""
     };
   }
   static navigationOptions = {
@@ -24,24 +21,10 @@ export default class HomeScreen extends React.Component {
     }
   };
 
-  componentDidMount() {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        this.setState({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          error: null
-        });
-      },
-      error => this.setState({ error: error.message }),
-      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
-    );
-  }
-
   render() {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <MapContainer />
+        <MapContainer lng={this.state.longitude} lat={this.state.latitude} />
         <TextInput
           style={{ height: 40 }}
           returnKeyType="done"
