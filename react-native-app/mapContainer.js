@@ -8,6 +8,7 @@ import {
   Dimensions
 } from "react-native";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import CustomMap from "./mapStyle.js";
 
 let { width, height } = Dimensions.get("window");
 const ASPECT_RATIO = width / height;
@@ -62,6 +63,7 @@ class MapContainer extends React.Component {
       <MapView
         provider={PROVIDER_GOOGLE}
         style={styles.container}
+        customMapStyle={CustomMap}
         showsUserLocation={true}
         region={this.state.region}
         onRegionChangeComplete={region => this.setState({ region })}
