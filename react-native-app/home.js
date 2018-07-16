@@ -1,5 +1,15 @@
 import React from "react";
-import { View, Text, Button, TextInput, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Button,
+  TextInput,
+  StyleSheet,
+  AppRegistry,
+  MapView,
+  Dimensions,
+  StatusBarIOS
+} from "react-native";
 import { createStackNavigator } from "react-navigation";
 import MapContainer from "./mapContainer.js";
 
