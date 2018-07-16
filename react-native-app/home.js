@@ -24,12 +24,20 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <MapContainer lng={this.state.longitude} lat={this.state.latitude} />
         <TextInput
           style={{ height: 40 }}
           returnKeyType="done"
           placeholder="Name"
           onChangeText={text => this.setState({ text })}
+        />
+        <Button
+          title="Go To Map"
+          onPress={() =>
+            this.props.navigation.navigate("Map", {
+              lng: this.state.longitude,
+              lat: this.state.longitude
+            })
+          }
         />
         <Button
           title="Go To Details"
