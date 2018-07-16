@@ -1,13 +1,14 @@
 import React from "react";
 import {
+  AppRegistry,
+  StyleSheet,
   View,
   Text,
-  Button,
-  TextInput,
-  StyleSheet,
-  Dimensions
+  MapView,
+  Dimensions,
+  StatusBarIOS
 } from "react-native";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import MapV, { PROVIDER_GOOGLE } from "react-native-maps";
 import CustomMap from "./mapStyle.js";
 
 let { width, height } = Dimensions.get("window");
@@ -22,6 +23,7 @@ class MapContainer extends React.Component {
     super();
     this.state = {
       region: {
+        routeCoordinates: [],
         latitude: LATITUDE,
         longitude: LONGITUDE,
         latitudeDelta: LATITUDE_DELTA,
@@ -33,6 +35,7 @@ class MapContainer extends React.Component {
     navigator.geolocation.getCurrentPosition(
       position => {
         this.setState({
+          routeCoordinates: [],
           region: {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
@@ -60,11 +63,12 @@ class MapContainer extends React.Component {
   }
   render() {
     return (
-      <MapView
+      <MapV
         provider={PROVIDER_GOOGLE}
         style={styles.container}
         customMapStyle={CustomMap}
         showsUserLocation={true}
+        followUserLocation={true}
         region={this.state.region}
         onRegionChangeComplete={region => this.setState({ region })}
       />
