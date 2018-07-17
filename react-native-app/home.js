@@ -45,10 +45,6 @@ export default class HomeScreen extends React.Component {
             this.props.navigation.navigate("Details", { name: this.state.text })
           }
         />
-        <Text>
-          latitude {this.state.latitude}
-          longitude {this.state.longitude}
-        </Text>
       </View>
     );
   }
